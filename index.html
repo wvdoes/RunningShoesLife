@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>RunningShoes.Life - How long will my running shoes last?</title>
+  <meta name="description" content="Running shoe lifespan calculator, replacement ETA, shoe comparison, and monetization-ready recommendations." />
+  <style>
+    :root{--bg:#f3f6fb;--card:rgba(255,255,255,.86);--text:#0f172a;--muted:#475569;--line:rgba(148,163,184,.35);--brand:#0ea5e9;--brand2:#0284c7;--glow:0 20px 45px rgba(15,23,42,.12)}
+    body.dark{--bg:#050b16;--card:rgba(15,23,42,.72);--text:#e2e8f0;--muted:#93a4ba;--line:rgba(100,116,139,.45);--brand:#22d3ee;--brand2:#06b6d4;--glow:0 20px 45px rgba(2,6,23,.45)}
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);position:relative;min-height:100vh}
+    body::before{content:'';position:fixed;inset:0;background:url('https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;z-index:-2;transform:scale(1.02)}
+    body::after{content:'';position:fixed;inset:0;background:linear-gradient(120deg,rgba(7,12,22,.60),rgba(9,26,54,.40));backdrop-filter:blur(4px);z-index:-1}
+    .wrap{max-width:1140px;margin:0 auto;padding:0 18px}
+    header{position:sticky;top:0;background:color-mix(in srgb,var(--bg),transparent 42%);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);z-index:10}
+    .nav{display:flex;justify-content:space-between;align-items:center;min-height:68px;gap:12px}.brand{font-weight:900;letter-spacing:.2px;text-decoration:none;color:var(--text)}
+    nav{display:flex;gap:8px;flex-wrap:wrap}nav a{text-decoration:none;color:var(--text);padding:8px 11px;border-radius:999px;font-weight:700;background:rgba(255,255,255,.08)}nav a:hover{background:rgba(255,255,255,.18)}
+    .hero{padding:52px 0 22px}h1{font-size:clamp(2rem,3.8vw,3.1rem);margin:.2rem 0 .7rem;text-shadow:0 2px 20px rgba(2,6,23,.35)}p.lead{color:var(--muted);max-width:860px;font-size:1.05rem}
+    section{padding:20px 0}.grid{display:grid;grid-template-columns:1.1fr .9fr;gap:20px}@media(max-width:950px){.grid{grid-template-columns:1fr}}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:var(--glow);backdrop-filter:blur(10px)}
+    .field{margin-bottom:12px}.f2{display:grid;grid-template-columns:1fr 1fr;gap:11px}@media(max-width:680px){.f2{grid-template-columns:1fr}}
+    label{display:block;font-weight:700;margin-bottom:6px}input,select,button{width:100%;padding:11px 12px;border-radius:12px;border:1px solid rgba(148,163,184,.45);font-size:15px}
+    body.dark input,body.dark select{background:rgba(15,23,42,.88);color:var(--text);border-color:#334155}
+    button{background:linear-gradient(180deg,var(--brand),var(--brand2));color:white;border:none;font-weight:800;cursor:pointer;box-shadow:0 8px 20px rgba(2,132,199,.3)}
+    button:hover{transform:translateY(-1px)}
+    .btn-ghost{background:transparent;color:var(--text);border:1px solid var(--line);box-shadow:none}
+    .actions{display:flex;gap:10px}.muted{color:var(--muted)}
+    .meter{height:10px;background:rgba(148,163,184,.35);border-radius:999px;overflow:hidden;margin:10px 0}.meter span{display:block;height:100%;background:linear-gradient(90deg,#22c55e,#f59e0b,#ef4444);width:0}
+    .status{font-weight:800}.status-healthy{color:#16a34a}.status-watch{color:#b45309}.status-replace{color:#dc2626}
+    .recommendations{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}@media(max-width:900px){.recommendations{grid-template-columns:1fr}}
+    .rec{border:1px solid var(--line);border-radius:14px;padding:12px;background:rgba(255,255,255,.35)} body.dark .rec{background:rgba(15,23,42,.55)} .rec a{font-weight:700}
+    .compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}@media(max-width:900px){.compare-grid{grid-template-columns:1fr}}
+    .history{margin-top:12px;padding-left:18px}
+    .blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}@media(max-width:900px){.blog-grid{grid-template-columns:1fr}}
+    .post h3{margin:.3rem 0}.post p{color:var(--muted)}
+    footer{margin-top:22px;border-top:1px solid var(--line);padding:16px 0;color:#dbe6f5;font-size:.95rem;background:rgba(2,6,23,.35)}footer a{color:#e2e8f0;margin-right:12px}
+    .toggle{display:flex;align-items:center;gap:8px;white-space:nowrap;font-weight:700}
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="index.html">RunningShoes.Life</a>
+    <nav>
+      <a href="index.html">Home</a><a href="about.html">About</a><a href="#lifespan-calculator">Calculator</a><a href="#comparison">Comparison</a><a href="blog.html">Blog</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a>
+    </nav>
+    <label class="toggle"><input id="themeToggle" type="checkbox"> Dark</label>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <h1>How long will my running shoes last?</h1>
+    <p class="lead">Estimate remaining lifespan based on mileage, model and running profile. Save your inputs, estimate replacement date, compare models, and surface affiliate-ready replacement cards.</p>
+  </section>
+
+  <section id="lifespan-calculator">
+    <div class="grid">
+      <article class="card">
+        <h2>Lifespan calculator</h2>
+        <div class="f2">
+          <div class="field"><label for="unit">Unit</label><select id="unit"><option value="km">Kilometers</option><option value="miles">Miles</option></select></div>
+          <div class="field"><label for="weekly">Weekly distance</label><input id="weekly" type="number" min="0" step="0.1" placeholder="e.g., 35"></div>
+        </div>
+        <div class="f2">
+          <div class="field"><label for="brand">Brand</label><select id="brand"></select></div>
+          <div class="field"><label for="model">Model</label><select id="model"></select></div>
+        </div>
+        <div class="field"><label for="mileage">Distance already run</label><input id="mileage" type="number" min="0" step="0.1" placeholder="e.g., 350"></div>
+        <div class="field"><label for="weight">Runner weight (kg)</label><input id="weight" type="number" min="1" step="0.1" placeholder="e.g., 72"></div>
+        <div class="f2">
+          <div class="field"><label for="terrain">Terrain</label><select id="terrain"><option value="road">Road</option><option value="trail">Trail</option><option value="mixed">Mixed</option><option value="treadmill">Treadmill</option></select></div>
+          <div class="field"><label for="pronation">Pronation</label><select id="pronation"><option value="neutral">Neutral</option><option value="overpronation">Overpronation</option><option value="underpronation">Underpronation</option></select></div>
+        </div>
+        <div class="field"><label for="footstrike">Footstrike</label><select id="footstrike"><option value="neutral">Neutral</option><option value="heel">Heel</option><option value="forefoot">Forefoot</option></select></div>
+        <div class="actions">
+          <button id="calculateBtn" type="button">Calculate</button>
+          <button id="resetBtn" class="btn-ghost" type="button">Reset</button>
+        </div>
+        <h3 id="result" aria-live="polite"></h3>
+        <div class="meter" aria-label="Usage meter"><span id="wearBar"></span></div>
+        <p id="ai-judgment" class="muted"></p>
+        <p id="eta" class="muted"></p>
+        <h4>Recent scenarios</h4>
+        <ul id="history" class="history muted"></ul>
+      </article>
+
+      <article class="card">
+        <h2>Replacement picks</h2>
+        <p class="muted">Monetization-ready block: connect this to your affiliate feed and update URLs per status.</p>
+        <div id="recommendations" class="recommendations"></div>
+        <hr style="border:none;border-top:1px solid var(--line);margin:16px 0">
+        <h3>Top Worn Shoes (You Maniacs!)</h3>
+        <div class="field"><label for="topBrand">Brand</label><select id="topBrand"><option>Nike</option><option>Adidas</option><option>Asics</option><option>Brooks</option><option>New Balance</option><option>Saucony</option><option>Mizuno</option><option>Hoka</option></select></div>
+        <div class="field"><label for="topMileage">Mileage bucket</label><select id="topMileage"><option value="under500">Under 500</option><option value="501-750">501-750</option><option value="above750">Above 750</option></select></div>
+        <button id="topBtn" type="button">Show</button>
+        <div id="topShoeImage" style="margin-top:12px"></div>
+      </article>
+    </div>
+  </section>
+
+  <section id="comparison">
+    <article class="card">
+      <h2>Model comparison</h2>
+      <div class="compare-grid">
+        <div>
+          <label for="cmpA">Model A</label>
+          <select id="cmpA"></select>
+        </div>
+        <div>
+          <label for="cmpB">Model B</label>
+          <select id="cmpB"></select>
+        </div>
+      </div>
+      <button id="compareBtn" type="button" style="margin-top:10px;max-width:260px">Compare lifespan</button>
+      <p id="compareOutput" class="muted"></p>
+    </article>
+  </section>
+
+  <section>
+    <article class="card">
+      <h2>Latest from the blog</h2>
+      <div class="blog-grid">
+        <article class="post"><h3>When to replace running shoes</h3><p>Practical signs of wear and injury prevention tips.</p><a href="blog.html">Read more</a></article>
+        <article class="post"><h3>Road vs trail durability</h3><p>How surfaces affect foam, outsole and lifespan.</p><a href="blog.html">Read more</a></article>
+        <article class="post"><h3>How to rotate shoe pairs</h3><p>Rotation strategies to improve shoe longevity.</p><a href="blog.html">Read more</a></article>
+      </div>
+    </article>
+  </section>
+</main>
+
+<footer><div class="wrap"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a><a href="contact.html">Contact Us</a></div></footer>
+
+<script>
+const brandData={Nike:{Pegasus:{miles:350,km:563},Vomero:{miles:400,km:650}},Adidas:{Ultraboost:{miles:350,km:563},Boston:{miles:400,km:650}},Asics:{"Gel-Kayano":{miles:350,km:563},Novablast:{miles:400,km:650}},Brooks:{Ghost:{miles:350,km:563},Glycerin:{miles:400,km:650}},Hoka:{Clifton:{miles:400,km:650},Bondi:{miles:350,km:563}}};
+const terrainFactor={road:1,trail:.85,mixed:.93,treadmill:1.05};
+const pronationFactor={neutral:1,overpronation:.94,underpronation:.96};
+const footstrikeFactor={neutral:1,heel:.95,forefoot:.98};
+const recommendationSets={
+  healthy:[{name:'Daily Trainer Deals',url:'https://example.com/daily-trainers'},{name:'Socks + Insoles Bundle',url:'https://example.com/accessories'}],
+  watch:[{name:'Rotation Pair: Brooks Ghost',url:'https://example.com/brooks-ghost'},{name:'Nike Pegasus 41',url:'https://example.com/nike-pegasus'}],
+  replace:[{name:'Shop replacement now',url:'https://example.com/replacement'},{name:'Premium Cushioning Picks',url:'https://example.com/premium-cushion'}]
+};
+const storageKey='rsl-index-state';
+const historyKey='rsl-index-history';
+
+const el=id=>document.getElementById(id);
+function getFlatModels(){
+  return Object.entries(brandData).flatMap(([brand,models])=>Object.entries(models).map(([model,vals])=>({brand,model,...vals})));}
+function populateBrands(){
+  const brand=el('brand'); brand.innerHTML='<option value="">Select brand</option>';
+  Object.keys(brandData).sort().forEach(name=>brand.insertAdjacentHTML('beforeend',`<option value="${name}">${name}</option>`));
+  populateModels('');
+}
+function populateModels(brandName){
+  const model=el('model'); model.innerHTML='<option value="">Select model</option>';
+  if(!brandData[brandName]) return;
+  Object.keys(brandData[brandName]).sort().forEach(name=>model.insertAdjacentHTML('beforeend',`<option value="${name}">${name}</option>`));
+}
+function populateComparison(){
+  const models=getFlatModels();
+  ['cmpA','cmpB'].forEach(id=>{el(id).innerHTML=models.map((m,i)=>`<option value="${i}">${m.brand} ${m.model}</option>`).join('');});
+  el('cmpB').selectedIndex=Math.min(1,models.length-1);
+}
+function renderRecommendations(status){
+  const key=status==='Replace Soon'?'replace':status==='Watchlist'?'watch':'healthy';
+  const items=recommendationSets[key];
+  el('recommendations').innerHTML=items.map(x=>`<article class="rec"><h4>${x.name}</h4><a href="${x.url}" rel="sponsored nofollow noopener" target="_blank">View offer</a></article>`).join('');
+}
+function statusLabel(usedPct){return usedPct<50?'Healthy':(usedPct<80?'Watchlist':'Replace Soon')}
+function statusClass(status){return status==='Healthy'?'status-healthy':status==='Watchlist'?'status-watch':'status-replace'}
+function weightAdjustment(weightKg){ if(weightKg<60) return 1.05; if(weightKg>85) return 0.9; return 1; }
+
+function calc(){
+  const unit=el('unit').value;
+  const d=parseFloat(el('mileage').value||'0');
+  const w=parseFloat(el('weight').value||'0');
+  const weekly=parseFloat(el('weekly').value||'0');
+  if(!Number.isFinite(d)||d<0||!Number.isFinite(w)||w<=0||!Number.isFinite(weekly)||weekly<0){
+    el('result').textContent='Please enter valid non-negative values.';return;
+  }
+
+  const terrain=el('terrain').value,pronation=el('pronation').value,footstrike=el('footstrike').value;
+  const brand=el('brand').value,model=el('model').value;
+  const unitKey=unit==='km'?'km':'miles';
+  let base=(unit==='km'?650:400);
+  if(brandData[brand]?.[model]?.[unitKey]) base=brandData[brand][model][unitKey];
+  base*=weightAdjustment(w);
+
+  const expected=Math.round(base*terrainFactor[terrain]*pronationFactor[pronation]*footstrikeFactor[footstrike]);
+  const remain=Math.max(0,Math.round(expected-d));
+  const used=Math.min(100,Math.round((d/Math.max(expected,1))*100));
+  const status=statusLabel(used);
+
+  el('result').textContent=`Estimated remaining lifespan: ${remain} ${unit}`;
+  el('wearBar').style.width=`${used}%`;
+  el('ai-judgment').innerHTML=`<span class="status ${statusClass(status)}">Status: ${status}</span>. Estimated total lifespan: ${expected} ${unit}.`;
+
+  if(weekly>0&&remain>0){
+    const weeks=remain/weekly;
+    const eta=new Date(); eta.setDate(eta.getDate()+Math.round(weeks*7));
+    el('eta').textContent=`At ${weekly.toFixed(1)} ${unit}/week, replacement is in ~${weeks.toFixed(1)} weeks (around ${eta.toLocaleDateString()}).`;
+  }else{ el('eta').textContent='Add weekly distance to estimate replacement date.'; }
+
+  pushHistory({brand:brand||'Generic',model:model||'N/A',remaining:remain,unit,status});
+  renderRecommendations(status);
+  saveState();
+}
+
+function compareModels(){
+  const models=getFlatModels();
+  const a=models[parseInt(el('cmpA').value,10)];
+  const b=models[parseInt(el('cmpB').value,10)];
+  if(!a||!b){el('compareOutput').textContent='Choose two models.';return;}
+  const diff=a.miles-b.miles;
+  const winner=diff===0?'tie':(diff>0?`${a.brand} ${a.model}`:`${b.brand} ${b.model}`);
+  const amount=Math.abs(diff);
+  el('compareOutput').textContent=diff===0?`Both models are listed at ${a.miles} miles (${a.km} km).`:`${winner} is listed about ${amount} miles (${Math.round(amount*1.60934)} km) longer.`;
+}
+
+function pushHistory(entry){
+  const rows=JSON.parse(localStorage.getItem(historyKey)||'[]');
+  rows.unshift({...entry,timestamp:new Date().toLocaleString()});
+  localStorage.setItem(historyKey,JSON.stringify(rows.slice(0,5)));
+  renderHistory();
+}
+function renderHistory(){
+  const rows=JSON.parse(localStorage.getItem(historyKey)||'[]');
+  el('history').innerHTML=rows.map(r=>`<li>${r.brand} ${r.model}: ${r.remaining} ${r.unit} left (${r.status})</li>`).join('') || '<li>No saved scenarios yet.</li>';
+}
+
+function showTop(){
+  const b=el('topBrand').value,m=el('topMileage').value;
+  const src=`https://via.placeholder.com/900x500.png?text=${encodeURIComponent(b+' '+m)}`;
+  el('topShoeImage').innerHTML=`<img src="${src}" alt="${b} ${m}" style="max-width:100%;border-radius:10px;border:1px solid var(--line)">`;
+}
+function saveState(){
+  localStorage.setItem(storageKey,JSON.stringify({unit:el('unit').value,weekly:el('weekly').value,brand:el('brand').value,model:el('model').value,mileage:el('mileage').value,weight:el('weight').value,terrain:el('terrain').value,pronation:el('pronation').value,footstrike:el('footstrike').value,dark:document.body.classList.contains('dark')}));
+}
+function restoreState(){
+  try{
+    const s=JSON.parse(localStorage.getItem(storageKey)||'{}');
+    ['unit','weekly','mileage','weight','terrain','pronation','footstrike'].forEach(k=>{if(s[k]!==undefined) el(k).value=s[k];});
+    if(s.dark){document.body.classList.add('dark'); el('themeToggle').checked=true;}
+    if(s.brand){el('brand').value=s.brand; populateModels(s.brand);} else {populateModels('');}
+    if(s.model){el('model').value=s.model;}
+  }catch(e){console.warn('state restore failed',e)}
+}
+function resetForm(){
+  localStorage.removeItem(storageKey);
+  ['weekly','mileage','weight'].forEach(id=>el(id).value='');
+  ['eta','result','ai-judgment'].forEach(id=>el(id).textContent='');
+  el('wearBar').style.width='0%'; el('unit').value='km'; el('terrain').value='road'; el('pronation').value='neutral'; el('footstrike').value='neutral'; el('brand').value=''; populateModels('');
+  renderRecommendations('Healthy');
+}
+
+populateBrands();
+populateComparison();
+restoreState();
+renderHistory();
+renderRecommendations('Healthy');
+el('brand').addEventListener('change',()=>{populateModels(el('brand').value);saveState();});
+['unit','weekly','model','mileage','weight','terrain','pronation','footstrike'].forEach(id=>el(id).addEventListener('change',saveState));
+el('calculateBtn').addEventListener('click',calc);
+el('resetBtn').addEventListener('click',resetForm);
+el('compareBtn').addEventListener('click',compareModels);
+el('topBtn').addEventListener('click',showTop);
+el('themeToggle').addEventListener('change',()=>{document.body.classList.toggle('dark',el('themeToggle').checked);saveState();});
+</script>
+</body>
+</html>

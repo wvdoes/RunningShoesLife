@@ -138,6 +138,39 @@ function rsl_get_brand_data() {
         ],
     ];
 
+    $additional_brand_data = [
+        'On' => [
+            'Cloudmonster' => ['miles' => 350, 'km' => 563],
+            'Cloudsurfer' => ['miles' => 350, 'km' => 563],
+            'Cloudrunner' => ['miles' => 400, 'km' => 650],
+            'Cloudflow' => ['miles' => 350, 'km' => 563],
+            'Cloudultra' => ['miles' => 400, 'km' => 650],
+        ],
+        'Puma' => [
+            'Deviate Nitro' => ['miles' => 350, 'km' => 563],
+            'Velocity Nitro' => ['miles' => 400, 'km' => 650],
+            'Magnify Nitro' => ['miles' => 400, 'km' => 650],
+            'ForeverRun Nitro' => ['miles' => 400, 'km' => 650],
+            'Fast-R Nitro Elite' => ['miles' => 300, 'km' => 483],
+        ],
+        'Salomon' => [
+            'Aero Glide' => ['miles' => 400, 'km' => 650],
+            'Aero Volt' => ['miles' => 350, 'km' => 563],
+            'Sense Ride' => ['miles' => 400, 'km' => 650],
+            'Ultra Glide' => ['miles' => 400, 'km' => 650],
+            'Speedcross' => ['miles' => 350, 'km' => 563],
+        ],
+        'Altra' => [
+            'Torin' => ['miles' => 350, 'km' => 563],
+            'Escalante' => ['miles' => 300, 'km' => 483],
+            'Paradigm' => ['miles' => 400, 'km' => 650],
+            'Lone Peak' => ['miles' => 400, 'km' => 650],
+            'Olympus' => ['miles' => 400, 'km' => 650],
+        ],
+    ];
+
+    $brand_data = array_replace_recursive($brand_data, $additional_brand_data);
+
     return apply_filters('rsl_brand_data', $brand_data);
 }
 

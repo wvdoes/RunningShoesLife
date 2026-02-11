@@ -14,11 +14,11 @@
     body::after{content:'';position:fixed;inset:0;background:linear-gradient(120deg,rgba(7,12,22,.60),rgba(9,26,54,.40));backdrop-filter:blur(4px);z-index:-1}
     .wrap{max-width:1140px;margin:0 auto;padding:0 18px}
     header{position:sticky;top:0;background:color-mix(in srgb,var(--bg),transparent 42%);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);z-index:10}
-    .nav{display:flex;justify-content:space-between;align-items:center;min-height:68px;gap:12px}.brand{font-weight:900;letter-spacing:.2px;text-decoration:none;color:var(--text)}
-    nav{display:flex;gap:8px;flex-wrap:wrap}nav a{text-decoration:none;color:var(--text);padding:8px 11px;border-radius:999px;font-weight:700;background:rgba(255,255,255,.08)}nav a:hover{background:rgba(255,255,255,.18)}
-    .hero{padding:52px 0 22px}h1{font-size:clamp(2rem,3.8vw,3.1rem);margin:.2rem 0 .7rem;text-shadow:0 2px 20px rgba(2,6,23,.35)}p.lead{color:var(--muted);max-width:860px;font-size:1.05rem}
+    .nav{display:flex;justify-content:space-between;align-items:center;min-height:68px;gap:12px}.brand{font-weight:900;letter-spacing:.2px;text-decoration:none;color:#f8fbff;text-shadow:0 2px 10px rgba(2,6,23,.45)}
+    nav{display:flex;gap:8px;flex-wrap:wrap}nav a{text-decoration:none;color:#f8fbff;padding:8px 11px;border-radius:999px;font-weight:700;background:rgba(2,6,23,.38);border:1px solid rgba(148,163,184,.35)}nav a:hover{background:rgba(15,23,42,.7)}
+    .hero{padding:52px 0 22px}.hero-panel{padding:26px;border:1px solid rgba(226,232,240,.28);border-radius:18px;background:linear-gradient(120deg,rgba(2,6,23,.58),rgba(15,23,42,.35));backdrop-filter:blur(8px)}h1{font-size:clamp(2rem,3.8vw,3.1rem);margin:.2rem 0 .7rem;color:#f8fbff;text-shadow:0 2px 20px rgba(2,6,23,.45)}p.lead{color:#dbeafe;max-width:860px;font-size:1.05rem}
     section{padding:20px 0}.grid{display:grid;grid-template-columns:1.1fr .9fr;gap:20px}@media(max-width:950px){.grid{grid-template-columns:1fr}}
-    .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:var(--glow);backdrop-filter:blur(10px)}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:var(--glow);backdrop-filter:blur(10px);color:#0f172a} body.dark .card{color:#e2e8f0}
     .field{margin-bottom:12px}.f2{display:grid;grid-template-columns:1fr 1fr;gap:11px}@media(max-width:680px){.f2{grid-template-columns:1fr}}
     label{display:block;font-weight:700;margin-bottom:6px}input,select,button{width:100%;padding:11px 12px;border-radius:12px;border:1px solid rgba(148,163,184,.45);font-size:15px}
     body.dark input,body.dark select{background:rgba(15,23,42,.88);color:var(--text);border-color:#334155}
@@ -35,7 +35,7 @@
     .blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}@media(max-width:900px){.blog-grid{grid-template-columns:1fr}}
     .post h3{margin:.3rem 0}.post p{color:var(--muted)}
     footer{margin-top:22px;border-top:1px solid var(--line);padding:16px 0;color:#dbe6f5;font-size:.95rem;background:rgba(2,6,23,.35)}footer a{color:#e2e8f0;margin-right:12px}
-    .toggle{display:flex;align-items:center;gap:8px;white-space:nowrap;font-weight:700}
+    .toggle{display:flex;align-items:center;gap:8px;white-space:nowrap;font-weight:700;color:#f8fbff}
   </style>
 </head>
 <body>
@@ -51,8 +51,10 @@
 
 <main class="wrap">
   <section class="hero">
-    <h1>How long will my running shoes last?</h1>
-    <p class="lead">Estimate remaining lifespan based on mileage, model and running profile. Save your inputs, estimate replacement date, compare models, and surface affiliate-ready replacement cards.</p>
+    <div class="hero-panel">
+      <h1>How long will my running shoes last?</h1>
+      <p class="lead">Estimate remaining lifespan based on mileage, model and running profile. Save your inputs, estimate replacement date, compare models, and surface affiliate-ready replacement cards.</p>
+    </div>
   </section>
 
   <section id="lifespan-calculator">
@@ -133,7 +135,7 @@
 <footer><div class="wrap"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a><a href="contact.html">Contact Us</a></div></footer>
 
 <script>
-const brandData={Nike:{Pegasus:{miles:350,km:563},Vomero:{miles:400,km:650}},Adidas:{Ultraboost:{miles:350,km:563},Boston:{miles:400,km:650}},Asics:{"Gel-Kayano":{miles:350,km:563},Novablast:{miles:400,km:650}},Brooks:{Ghost:{miles:350,km:563},Glycerin:{miles:400,km:650}},Hoka:{Clifton:{miles:400,km:650},Bondi:{miles:350,km:563}}};
+const brandData={Nike:{Pegasus:{miles:350,km:563},Vomero:{miles:400,km:650},Invincible:{miles:400,km:650},Structure:{miles:400,km:650},Vaporfly:{miles:300,km:483}},Adidas:{Ultraboost:{miles:350,km:563},Boston:{miles:400,km:650},AdiosPro:{miles:300,km:483},Supernova:{miles:400,km:650},SolarBoost:{miles:400,km:650}},Asics:{"Gel-Kayano":{miles:350,km:563},Novablast:{miles:400,km:650},"Gel-Nimbus":{miles:320,km:515},"GT-2000":{miles:350,km:563},"Gel-Cumulus":{miles:400,km:650}},Brooks:{Ghost:{miles:350,km:563},Glycerin:{miles:400,km:650},Adrenaline:{miles:400,km:650},Launch:{miles:400,km:650},Levitate:{miles:400,km:650}},Hoka:{Clifton:{miles:400,km:650},Bondi:{miles:350,km:563},Mach:{miles:400,km:650},Rincon:{miles:400,km:650},Speedgoat:{miles:400,km:650}},Saucony:{Ride:{miles:400,km:650},Triumph:{miles:400,km:650},Kinvara:{miles:300,km:483},EndorphinSpeed:{miles:400,km:650},Peregrine:{miles:400,km:650}},NewBalance:{"Fresh Foam 1080":{miles:400,km:650},"Fresh Foam 880":{miles:400,km:650},"FuelCell Rebel":{miles:350,km:563},"FuelCell SC Elite":{miles:300,km:483},"Fresh Foam More":{miles:400,km:650}},Mizuno:{"Wave Rider":{miles:350,km:563},"Wave Inspire":{miles:400,km:650},"Wave Sky":{miles:400,km:650},"Wave Rebellion":{miles:350,km:563},"Wave Mujin":{miles:400,km:650}},Salomon:{AeroGlide:{miles:400,km:650},AeroVolt:{miles:350,km:563},SenseRide:{miles:400,km:650},UltraGlide:{miles:400,km:650},Speedcross:{miles:350,km:563}},On:{Cloudmonster:{miles:350,km:563},Cloudsurfer:{miles:350,km:563},Cloudrunner:{miles:400,km:650},Cloudflow:{miles:350,km:563},Cloudultra:{miles:400,km:650}},Puma:{DeviateNitro:{miles:350,km:563},VelocityNitro:{miles:400,km:650},MagnifyNitro:{miles:400,km:650},ForeverRun:{miles:400,km:650},FastR:{miles:300,km:483}},Altra:{Torin:{miles:350,km:563},Escalante:{miles:300,km:483},Paradigm:{miles:400,km:650},LonePeak:{miles:400,km:650},Olympus:{miles:400,km:650}}};
 const terrainFactor={road:1,trail:.85,mixed:.93,treadmill:1.05};
 const pronationFactor={neutral:1,overpronation:.94,underpronation:.96};
 const footstrikeFactor={neutral:1,heel:.95,forefoot:.98};

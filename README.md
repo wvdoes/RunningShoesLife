@@ -18,6 +18,7 @@ This repository includes:
 ## What's improved in this iteration
 
 - Improved `index.html` with:
+- Expanded shoe library coverage in `index.html` and shortcode data with additional brands/models (On, Puma, Salomon, Altra plus added flagship models across existing brands).
   - enhanced visual design (full-page running background image, glassmorphism cards, richer navigation and contrast),
   - enhanced status-aware recommendation cards,
   - model-vs-model comparison block,
